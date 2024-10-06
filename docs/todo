@@ -1,0 +1,82 @@
+BASE (21)
+    caratterizzazione eventi
+        -individuali  /  di gruppo
+        -unici  /  ripetuti
+        -semplici(appuntamento una tantum)  /  complessi(studio di tale argomento da questo giorno a questo giorno)
+    gestione eventi
+        -aggiunta
+        -rimozione
+        -modifica
+    pomodoro
+    editor testo
+        -note
+            -dotate di titolo, categoria, contenuto, data creazione, data ultima modifica
+            -view separata dal calendario
+        -garantire il poter duplicare, cancellare, modificare, copiare note
+        -dalla home vediamo la nota e l'inizio del contenuto (X caratteri, X>200)
+        -ordine: alfabetico (titolo), lunghezza, data creazione, modifica
+    time machine
+        -rende possibile cambiare data e ora del dispositivo per fare i test
+    attività
+        -non sono appuntamenti come gli eventi, ma devono essere svolti dentro una certa scadenza
+        -da fare quando si ha tempo ma dentro una certa data
+        -da fare una lista delle attività da fare (oltre alla scadenza nel calendario a mò di evento)
+    pomodoro da aggiungere:
+        -input di ore/minuti disponibili --> output: consiglio su come suddividere le ore (cicli, tempo di studio, tempo di pausa)
+
+ESTENSIONE I (24)
+    notifiche
+        -per eventi e scadenza attività
+        -urgenza notifica
+        -ripetizione
+        -snooze
+        -suportando diversi meccanismi (poi a scelta dell'utente)
+            -email
+            -whatsapp
+            -sistema operativo
+        -quanto prima dell'evento (scelto dall'utente)
+    geolocalizzaione
+        -posizionare l'evento in un luogo specifico
+        -posizionare l'evento in un fuso orario
+    note
+        -scritte in markdown (npm install marked)
+    pomodoro
+        -dall'evento (es. studiare a quest'ora) si rimanda alla view pomodoro (con il suggerimento di cicli preimpostato, ig)
+        -cicli previsti e non terminati, si aggiungono a quelli "dell'appuntamento successivo" (es. giorno successivo di studio)
+
+ESTENSIONE II (27)
+    eventi di gruppo
+        -utente invia evento a cui partecipare ad altro utente
+        -altro utente può accettare, rifiutare, modificare e rimandare accettazione
+    integrazione con altri sistemi (standard iCalendar, link utili a slide 21)
+        -google calendar, apple calendar...
+    messaggi e notifiche ad altri utenti
+        -non per forza una chat
+    utente può settare degli spazi di tempo in cui non sono disponibili per eventi di gruppo
+    attività assegnate a più persone
+    note
+        -dotate di autore
+        -lista utenti con accesso (tutti gli utenti, lista di utenti, private)
+    pomodoro
+        -è possibile mandare una notifica (un messaggio) ad un altro utente per studiare insieme con le stesse impostazioni di cicli
+
+ESTENSIONE III (33)
+    progetti divisi in fasi
+        -scadenza fasi = eventi
+        -anche di gruppo
+        -diagramma di Gantt
+    effettivamente una chat per messaggiare con altri utenti
+    risorse
+        -alcuni utenti, sono speciali, sono risorse (stanze, aule, apparecchiature)
+        -se tu "inviti" una risorsa ad un evento ed è disponibile, accetta in automatico ed è "prenotata" per quell'evento
+        -calendario delle risorse è esplorabile da tutti
+        -calendario delle risorse è gestito da un solo vero utente (admin, anche uno per tutte le risorse)
+    attività divise in sotto-attività
+    note
+        -todo list con spunte cliccabili
+        -aggiungendo scadenza ad una item list si aggiunge l'evento al calendario
+    pomodoro
+        -aggiunta musica da yt anche una volta iniziato il ciclo
+        -modifica del tempo anche una volta iniziato il ciclo
+    progetto
+        -un macello, vedere da slide 29 a 32

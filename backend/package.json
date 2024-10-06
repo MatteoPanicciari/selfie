@@ -1,0 +1,35 @@
+{
+    "name": "selfie",
+    "version": "1.0.0",
+    "description": "Backend for the selfie project",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MatteoPanicciari/selfie.git"
+    },
+    "keywords": [],
+    "author": "MatteoPanicciari",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/MatteoPanicciari/selfie/issues"
+    },
+    "homepage": "https://github.com/MatteoPanicciari/selfie#readme",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.19.2",
+        "express-session": "^1.18.0",
+        "fullcalendar": "^6.1.15",
+        "mongoose": "^8.6.1",
+        "passport": "^0.7.0",
+        "passport-local": "^1.0.0",
+        "select2": "^4.1.0-rc.0",
+        "uikit": "^3.21.10"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.7"
+    }
+}

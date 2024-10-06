@@ -1,0 +1,52 @@
+#File in root da nascondere a git--------------------------
+node_modules
+#----------------------------------------------------------
+
+#File in Backend da nascondere a git-----------------------
+backend/node_modules
+#----------------------------------------------------------
+
+#File in Frontend da nascondere a git----------------------
+#preimpostato da angular/cli
+
+# Compiled output
+frontend/dist
+frontend/tmp
+frontend/out-tsc
+frontend/bazel-out
+
+# Node
+frontend/node_modules
+frontend/npm-debug.log
+frontend/yarn-error.log
+
+# IDEs and editors
+frontend/.idea/
+frontend/.project
+frontend/.classpath
+frontend/.c9/
+frontend/*.launch
+frontend/.settings/
+frontend/*.sublime-workspace
+
+# Visual Studio Code
+frontend/.vscode/*
+!frontend/.vscode/settings.json
+!frontend/.vscode/tasks.json
+!frontend/.vscode/launch.json
+!frontend/.vscode/extensions.json
+frontend/.history/*
+
+# Miscellaneous
+frontend/.angular/cache
+frontend/.sass-cache/
+frontend/.connect.lock
+frontend/.coverage
+frontend/.libpeerconnection.log
+frontend/testem.log
+frontend/typings
+
+# System files
+frontend/.DS_Store
+frontend/Thumbs.db
+#----------------------------------------------------------

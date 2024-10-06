@@ -1,0 +1,10 @@
+Middleware
+    -> funzione che ha accesso a response, request di HTTP e alla funzione next()
+    -> ogni volta che viene fatta una richiesta ad un path, Express attraversa tutti i middleware creati per quel path
+next()
+    -> passa il controllo al middleware successivo
+app.use()
+    -> usato per aggiungere un middleware ad app
+    -> formato = app.use(path, middlewareFunction)
+        -> path = percorso al quale si applica il middleware (se omesso, si applica a tutte le richieste)
+        -> middlewareFunction = ciò che viene eseguito quando si effettua la richiesta al path

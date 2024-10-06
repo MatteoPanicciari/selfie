@@ -1,0 +1,12 @@
+{
+    "name": "selfie",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
+        "start-backend": "cd backend && npm start",
+        "start-frontend": "cd frontend && ng serve"
+    },
+    "devDependencies": {
+        "concurrently": "^7.6.0"
+    }
+}

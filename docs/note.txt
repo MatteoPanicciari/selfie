@@ -1,0 +1,90 @@
+far partire l'applicazione:
+    ng serve
+
+component:
+    pezzi di elementi dom riutilizzabili e gestibili indipendentemente l'uno dall'altro attraverso il suo html, il suo css e il suo ts
+creare un nuovo componente (in un terminale nuovo):
+    ng generate component nome
+    (oppure)
+    ng g c nome-component
+        verranno creati:
+            nome.component.html     //template del component
+            nome.component.spec.ts  //serve per il testing 
+            nome.component.css      //stile
+            nome.component.ts       //gestisce tutto la pagina (tipo js negli altri progetti)
+
+        aggiorna:
+            app.module.ts inserendo il nuovo component
+
+directive:
+    simili alle classi per css, tu assegni ad un elemento la direttiva che lo caratterizza (anche piu di una, ma ti consente di crearci tutta roba attorno e non solo cambiare lo stile (a differenza delle classi))
+creare una nuova direttiva:
+    ng generate directive nome
+        (oppure)
+    ng g d nome
+        verranno creati:
+            nome.directive.spec.ts  //serve per il testing 
+            nome.directive.ts       //gestisce cosa deve succedere agli elementi con questa direttiva
+
+        aggiorna:
+            app.module.ts inserendo la nuova direttiva
+
+service:
+    gestiscono davvero tutta la logica dell'applicazione, backend va fatto qui (da usare quando si applica il ts a più componenti)
+    molto utile per passare i dati tra due compinenti diversi, li salviamo in service e "iniettiamo" il service nel component
+creare un nuovo service:
+    ng generate service nome
+        (oppure)
+    ng g s nome
+        verranno creati:
+            nome.service.spec.ts  //serve per il testing 
+            nome.service.ts       //gestisce tutto la pagina (tipo js negli altri progetti)
+
+routing:
+creare modulo di routing:
+    ng generate module nome --flat --module=app
+    ng g m nome --flat --module=app
+
+
+data binding:
+    passare dati dal ts al html e viceversa
+    tipi:
+        sring interpolation -> <elementoDOM> {{variabileTS}} </elementoDOM>
+        property binding -> <elementoDOM [proprietaHTML] = "variabileTS" ></elementoDOM>
+        event binding -> <elementoDOM (nomeEvento) = "funzioneTS($event)" ></elementoDOM>
+        2way binding -> <elementoDOM [(ngModule)] = "variabileTS" ></elementoDOM>    //richiede FormModule
+
+directory predefinite Angular
+    src
+        app
+            app.module.ts
+                lista della roba che usiamo (componenti, moduli...)
+        assets
+            ci vanno tutti i file necessari (come risorse), immagini, icons...
+        environments
+            idk
+        index.html
+            pagina iniziale
+        main.ts
+            file che gestisce TUTTO il progetto, si parte da qui per poi arrivare a tutto il resto
+    browserlistrc
+        browser supportati
+    editorconfig
+        regole dell'editor, solo stile del codice
+    gitignore
+        dice a git quali file devo essere salvati, quali ignorati...
+        praticamente è una lista di file che non andranno pushati (es: node_modules)
+    angular.json
+        gestisce le informazioni e le impostazioni di angular
+    package-lock.json, package-lock
+        gestisce le informazioni e le impostazioni dell'intero progetto
+        script
+            accorciamo i comandi (es: con 'npm run watch' scriviamo 'ng build --watch --configuration development')
+        dependencies
+            pacchetti di npm che dovremmo scaricare e che servono a lavorare (che poi verranno automaticamente scaricati quando facciamo 'npm install')
+        devdependencies
+            dipendenze che non sono fondamentali per angular ma solo per i developer, ad esempio roba di test (es: karma), quindi quando pusheremo il progetto finito, al browser non glie ne fregherà nulla di devDependencies ma solo di dependencies
+    readme.md
+        inutile spiegare
+    tsconfig.app.json, tsconfig.json, tsconfig.spec.json
+        non ho capito, serve a typescript
