@@ -8,3 +8,6 @@ app.use()
     -> formato = app.use(path, middlewareFunction)
         -> path = percorso al quale si applica il middleware (se omesso, si applica a tutte le richieste)
         -> middlewareFunction = ciò che viene eseguito quando si effettua la richiesta al path
+cors:
+    ogni volta che un client fa una richiesta ad un server di un altro dominio, automaticamente prima della vera richiesta viene fatta una richiesta HTTP OPTIONS per capire se il client può effettivamente ricevere dal server
+    cors imposta in automatico gli header delle risposte del nostro server express in modo che possiamo effettivamente creare un server API
