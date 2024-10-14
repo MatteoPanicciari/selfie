@@ -1,0 +1,16 @@
+<h1>Login</h1>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <!-- controlla se ci sono errori, i ? servono ad angular per evitare che il valore sia null e 
+    tentare di accedere a errors in caso sia null, quindi controlla prima che quel parametro esista, 
+    poi forse accede a errors, controlla che errors esista, poi in caso accede a minlenght -->
+    <h5 *ngIf="loginForm.get('password')?.errors?.['minlength']">Password troppo breve</h5>
+    <h5 *ngIf="loginForm.get('password')?.errors?.['maxlength']">Password troppo lunga</h5>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" formControlName="username"><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password"><br>
+    <button type="submit" [disabled]="!loginForm.valid">Insert</button>
+</form>
+<button id="goSignUp">Registrati</button>
