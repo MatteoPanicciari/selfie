@@ -21,6 +21,7 @@ export class LoginComponent {
     });
     
     onSubmit(): void {
+        //con ! assicuro a ts che i campi non siano NULL
         this.apiService.userLogin(this.loginForm.value.username!, this.loginForm.value.password!).subscribe({
             next: (response) => {
                 if(response.success){

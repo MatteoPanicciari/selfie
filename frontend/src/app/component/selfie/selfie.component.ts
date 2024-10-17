@@ -19,15 +19,15 @@ export class SelfieComponent implements OnInit {
         this.router.navigate(['login']);        
     }
     ngOnInit(): void {
+        //DEBUG: controlli già fatti, forse rimuovibile ormai sennò siamo ridondanti
         // Controlla se la sessione è attiva quando il componente viene inizializzato
-        this.apiService.checkSession().subscribe(
-          (response) => {
-            console.log('jaja')
+        this.apiService.checkSession().subscribe({
+          next:(success) => {
+            console.log('Sessione attiva : '+ success);
           },
-          (error) => {
-            console.log('jeje')
-            console.error('Errore nella verifica della sessione:', error);
+          error: (error) => {
+            console.log('Sessione non attiva : '+ error);
           }
-        );
-      }
+        });
+    }
 }

@@ -11,3 +11,5 @@ app.use()
 cors:
     ogni volta che un client fa una richiesta ad un server di un altro dominio, automaticamente prima della vera richiesta viene fatta una richiesta HTTP OPTIONS per capire se il client può effettivamente ricevere dal server
     cors imposta in automatico gli header delle risposte del nostro server express in modo che possiamo effettivamente creare un server API
+passport bellissimo:
+    https://www.passportjs.org/concepts/authentication/downloads/html/

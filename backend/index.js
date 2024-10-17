@@ -67,7 +67,9 @@ app.use(passport.session());
 
 //se viene trovato l'username e la password corrisponde, chiamiamo done (null, user), altrimenti (null, false, error_message) o done(err)
 passport.use(
+    //il done ritorna al passport.authenticate le informazioni sull'autenticazione
     new LocalStrategy(async (username, password, done) => {
+        console.log('LocalStrategy');
         try {
             const user = await User.findOne({ username });
             if(!user){
@@ -78,22 +80,24 @@ passport.use(
                 console.log("incorrect password");
                 return done(null, false, { message: "Incorrect username or password." });  //password errata
             }
-            console.log("accesso gg");
+            console.log("Accesso Effettuato");
             return done(null, user);      //autenticazione riuscita
         } catch (err) {
-            console.log("altro errore nell'accesso");
+            console.log("Altro errore nell'accesso");
             return done(err);     //altri errori
         }
     })
 );
 
 //Serializzazione: appena l'utente inserisce bene le credenziali, passport si salva l'id in modo da ricordarlo successivamente e non salvarsi altre informazioni
-passport.serializeUser((user, done) => {
-    done(null, user._id); // serializza l'id utente
+passport.serializeUser((userId, done) => {
+    console.log('Serialize');
+    done(null, userId); // serializza l'id utente
 });
 
 //Deserializzazione: quando l'app ha bisogno delle informazioni dell'utente, chiama questa per farsi restituire l'oggetto user e ricavare info utili
 passport.deserializeUser(async (id, done) => {
+    console.log('Deserialize');
     try {
         const user = await User.findById(id);
         done(null, user); //chiama done(), funzione di passport che gestisce success/error o fail
@@ -104,6 +108,7 @@ passport.deserializeUser(async (id, done) => {
 
 // middleware per mantenere l'autenticazione dell'utente, se non è autenticato, lo mandiamo al login
 const ensureAuthenticated = (req, res, next) => {
+    console.log('EnsureAutheticated');
     if (req.isAuthenticated()) {
       return next(); // User is authenticated, mandiamo al prossimo middleware
     }
@@ -113,21 +118,22 @@ const ensureAuthenticated = (req, res, next) => {
 
 
 //DEBUG: da togliere e mettere in auth.js  
-app.post("/api/auth/login", (req, res, next) => { 
-    passport.authenticate("local", (err, user, info) => {
-        if (err) {
-            return res.status(500).json({ success: false, message: 'Errore del server.' });
-        }
-        if (!user) {
-            return res.status(401).json({ success: false, message: 'Credenziali errate.' });
-        }
-        req.logIn(user, (err) => {
+app.post("/api/auth/login", (req, res, next) => {
+    //DEBUG: riscritta per comprensione, guardare i push precedenti per la versione minimizzata carina
+    const passportAuthenticate = passport.authenticate("local", function(err, user, info) {
+        console.log('Passport Authenticated');
+        if(err) return res.status(500).json({ success: false, message: 'Errore del server.' });
+        if(!user) return res.status(401).json({ success: false, message: info });
+        req.logIn(user, (err) => {  //richiamo di serializeUser()
+            console.log('logIn');
             if (err) {
                 return res.status(500).json({ success: false, message: 'Login fallito.' });
             }
             return res.status(200).json({ success: true, message: 'Login riuscito.', user });
         });
-    })(req, res, next);
+    });
+
+    passportAuthenticate(req, res, next);
 });
 
 
