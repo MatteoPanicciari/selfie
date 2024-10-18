@@ -22,12 +22,12 @@ export class SelfieComponent implements OnInit {
         //DEBUG: controlli già fatti, forse rimuovibile ormai sennò siamo ridondanti
         // Controlla se la sessione è attiva quando il componente viene inizializzato
         this.apiService.checkSession().subscribe({
-          next:(success) => {
-            console.log('Sessione attiva : '+ success);
-          },
-          error: (error) => {
-            console.log('Sessione non attiva : '+ error);
-          }
+            next:(success) => {
+                console.log('Sessione attiva : '+ success.success);
+            },
+            error: (error) => {
+                console.log('Sessione non attiva : '+ error);
+            }
         });
     }
 }

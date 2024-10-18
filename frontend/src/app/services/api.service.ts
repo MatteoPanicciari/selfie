@@ -25,7 +25,7 @@ export class ApiService {
     }
 
     // Metodo per controllare se la sessione è ancora attiva
-  checkSession(): Observable<any> {
-    return this.http.get(`${this.urlServer}/auth/profile`, { withCredentials: true }); // `withCredentials` include il cookie di sessione
-  }
+    checkSession(): Observable<any> {
+        return this.http.get(`${this.urlServer}/auth/profile`, { withCredentials: true }); // `withCredentials` include il cookie di sessione
+    }
 }
