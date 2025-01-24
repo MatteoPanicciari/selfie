@@ -1,6 +1,8 @@
 # selfie
 Progetto di gruppo - TecWeb
+
 Ancora in fase embrionale
+
 Presente solo la parte backend (comunicazione server-angular), manca tutto il frontend
 
 ## Download directory
@@ -38,6 +40,7 @@ open "localhost:4200" on browser
 ```
 
 Per eseguire login, utilizzare credenziali:
+
 user:
 ```bash
 matteo
